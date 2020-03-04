@@ -14,4 +14,3 @@ product = Product.new({ name: "Product 3", price: 5.00, image_url: "http://www.e
 product.save
 product = Product.new({ name: "Product 4", price: 10.00, image_url: "http://www.example.com/product_4", description: "This product is for those who seek the finest things in life.", amount: 75 })
 product.save
-rails db: seed
