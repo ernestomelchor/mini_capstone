@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   namespace :api do
-    get "/photos" => "products#index"
+    get "/products_url" => "products#products_action"
   end
 end
