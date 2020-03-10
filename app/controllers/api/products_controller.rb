@@ -6,8 +6,12 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new({ name: params["name"], price: params["price"], image_url: params["image_url"], description: params["description"], amount: params["amount"] })
-    @product.save
-    render "create.json.jb"
+
+    if @product.save
+      render "create.json.jb"
+    else
+      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -23,10 +27,16 @@ class Api::ProductsController < ApplicationController
     @product.image_url = params["image_url"] || @product.image_url
     @product.description = params["description"] || @product.description
     @product.amount = params["amount"] || @product.amount
-    @product.save
-    render "update.json.jb"
+    if @product.save
+      render "update.json.jb"
+    else
+      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @product = Product.find_by(id: params["id"])
+    @product.destroy
+    render "destroy.json.jb"
   end
 end

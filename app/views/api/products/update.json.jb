@@ -1,7 +1,7 @@
 {
-  updated_product_name: @product.name,
-  updated_product_price: @product.price,
-  updated_product_image_url: @product.image_url,
-  updated_product_description: @product.description,
-  updated_product_amount: @product.amount,
+  id: @product.id,
+  name: @product.name,
+  price: @product.price,
+  image_url: @product.image_url,
+  description: @product.description,
 }
