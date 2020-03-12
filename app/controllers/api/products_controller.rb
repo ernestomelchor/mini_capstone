@@ -28,7 +28,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new({ name: params["name"], price: params["price"], image_url: params["image_url"], description: params["description"], amount: params["amount"] })
+    @product = Product.new({ name: params["name"], price: params["price"], description: params["description"], amount: params["amount"] })
 
     if @product.save
       render "create.json.jb"
@@ -47,7 +47,6 @@ class Api::ProductsController < ApplicationController
     @product = Product.find_by(id: params["id"])
     @product.name = params["name"] || @product.name # If the previous condition is falsey, move forward, meaning keep the previous @product.name the same
     @product.price = params["price"] || @product.price
-    @product.image_url = params["image_url"] || @product.image_url
     @product.description = params["description"] || @product.description
     @product.amount = params["amount"] || @product.amount
     if @product.save
