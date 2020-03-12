@@ -1,8 +1,5 @@
 {
-  id: supplier.id,
   name: supplier.name,
-  price: supplier.price,
-  image_url: supplier.image_url,
-  description: supplier.description,
-  is_discounted: supplier.discount,
+  email: supplier.email,
+  phone_number: supplier.phone_number,
 }

@@ -3,9 +3,11 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :description, presence: true, length: { minimum: 10, maximum: 500 }
 
-  def supplier
-    Supplier.find_by(id: supplier_id)
-  end
+  belongs_to :supplier # This line takes care of lines 8-10 so long as you have designed your database this way
+
+  # def supplier
+  #   Supplier.find_by(id: supplier_id)
+  # end
 
   def discount
     price < 250
