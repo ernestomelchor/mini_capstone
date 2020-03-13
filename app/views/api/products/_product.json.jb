@@ -5,4 +5,7 @@
   description: product.description,
   is_discounted: product.discount,
   supplier_name: product.supplier.name,
+  images: product.images.each do |image|
+    image.url
+  end,
 }

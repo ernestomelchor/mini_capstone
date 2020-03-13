@@ -28,7 +28,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new({ name: params["name"], price: params["price"], description: params["description"], amount: params["amount"] })
+    @product = Product.new({ name: params["name"], price: params["price"], description: params["description"], amount: params["amount"], supplier_id: params["supplier_id"] })
 
     if @product.save
       render "create.json.jb"
@@ -49,6 +49,7 @@ class Api::ProductsController < ApplicationController
     @product.price = params["price"] || @product.price
     @product.description = params["description"] || @product.description
     @product.amount = params["amount"] || @product.amount
+    @product.supplier_id = params["supplier_id"] || @product.supplier_id
     if @product.save
       render "update.json.jb"
     else

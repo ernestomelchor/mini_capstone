@@ -11,4 +11,9 @@ Rails.application.routes.draw do
     get "/suppliers" => "suppliers#index"
     get "/suppliers/:id" => "suppliers#show"
   end
+
+  namespace :api do
+    get "/images" => "images#index"
+    get "/images/:id" => "images#show"
+  end
 end
