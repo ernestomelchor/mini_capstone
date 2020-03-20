@@ -30,4 +30,8 @@ Rails.application.routes.draw do
     get "/images" => "images#index"
     get "/images/:id" => "images#show"
   end
+
+  namespace :api do
+    post "/carted_products" => "carted_products#index"
+  end
 end
