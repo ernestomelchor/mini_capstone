@@ -1,7 +1,13 @@
-<h1>Soccer Products</h1>
-<% @products.each do |product| %>
-  <img src="<%= product.images[0].url%>" width=300>
-  <h3> Product: <%= product.name %> </h3>
-  <p> Price: <%= product.price %> </p>
-  <p> Description: <%= product.description %></p>
-<% end %>
+<body>
+  <h1>Soccer Products</h1>
+  <% @products.each do |product| %>
+    <% if product.images.length > 0 %>
+      <img src="<%= product.images[0].url%>" width=300>
+    <% end %>
+    <h3> Product: <%= product.name %> </h3>
+    <p> Price: <%= product.price %> </p>
+    <p> Description: <%= product.description %></p>
+    <a href="/products/<%=product.id%>">More info</a>
+    <hr>
+  <% end %>
+</body>
