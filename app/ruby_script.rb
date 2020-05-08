@@ -4,11 +4,12 @@ puts "Welcome to the Product app!"
 response = HTTP.get("http://localhost:3000/api/products")
 products = response.parse
 
-products.map do |product|
+show = products.map do |product|
   {
-    product.name,
-    product.price,
-    product.description,
+    name: product["name"],
+    price: product["price"],
+    description: product["description"],
   }
 end
 
+puts show
